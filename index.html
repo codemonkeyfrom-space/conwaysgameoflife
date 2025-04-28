@@ -15,10 +15,34 @@
             background-color: #000;
             color: white;
         }
+        table {
+            padding: 10px;
+        }
+        td {
+            text-align: center;
+            padding: 5px;
+        }
+        select {
+            width: 80px;
+            text-align: center;
+        }
+        input {
+            width: 20px;
+        }
         canvas {
             border: 1px solid cyan;
-            width: 90%;
-            height: 90%;
+            width: 98%;
+            height: 98%;
+        }
+        #control {
+            position: absolute;
+            background-color: #000;
+            border: 1px solid cyan;
+            border-spacing: 2px;
+            bottom:20px;
+            left: 20px;
+            padding: 10px;
+
         }
         /* select, button {
             margin-bottom: 10px;
@@ -26,34 +50,55 @@
     </style>
 </head>
 <body>
-    <select id="ddSize">
-        <option value="0.6">0.6</option>
-        <option value="0.8">0.8</option>
-        <option value="1" selected>1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="8">8</option>
-        <option value="10">10</option>
-    </select>
-    
-    <select id="ddPattern">
-        <option value="random">Random</option>
-        <option value="glider">Glider</option>
-    </select>
-    <div>
-        <label>delay:</label>
-        <input id="rnDelay" type="range" min="0", max="9" value="0"></select>
-        <label id="lbDelay"></label>
+    <div id="control">
+
+        <table border="1">
+            <tr>
+                <td>
+                    <label>start pattern</label>
+                </td>
+                <td>
+                    <select id="ddPattern">
+                        <option value="random">random</option>
+                    </select>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td>
+                    <label>delay</label>
+                </td>
+                <td>
+
+                    <input id="rnDelay" type="range" min="0", max="6" value="0" style="width:80px"></select>
+                    <br/>
+                    <label id="lbDelay" style="width:680px"></label>
+                </td>
+                
+            </tr>
+            
+            <tr>
+
+                <td>
+                    <label id="lbGenerationLabel">generation</label>
+                </td>
+                <td>
+                    <label id="lbGeneration">0</label>
+                </td>
+                
+            </tr>
+        </table>
+
+        <div style="text-align: center">
+            <button id="bnGo">go</button>
+            <button id="bnStep">step</button>
+        </div>
+
+        
     </div>
-    
-    <label id="lbGeneration"></label>
-    <button id="bnGo">go</button>
-    <button id="bnStep">step</button>
 
     <canvas id="gameCanvas"></canvas>
-    <script src="game.js"></script>
+    <script src="game.js" type="module"></script>
 </body>
 </html>
