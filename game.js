@@ -15,7 +15,6 @@ let delayValues = [0, 250, 500, 750, 1000, 1500, 2000];
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 ctx.imageSmoothingEnabled = false;
-// const ddSize = document.getElementById("ddSize");
 const bnGo = document.getElementById("bnGo");
 const bnStep = document.getElementById("bnStep");
 const lbGeneration = document.getElementById("lbGeneration");
@@ -33,10 +32,6 @@ const patterns = {};
 for (const [name, patternStr] of Object.entries(rawPatterns)) {
     patterns[name] = parsePattern(patternStr);
 }
-
-// ddSize.addEventListener("change", () => {
-//     init();
-// });
 
 bnStep.addEventListener("click", () => {
     requestId = requestAnimationFrame(step);
