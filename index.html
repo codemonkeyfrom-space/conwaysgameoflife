@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conway's Game of Life</title>
     <style>
+        a:link {
+            color: #0ff;
+        }
+        a:visited {
+            color: #088;
+        }
         body {
             display: flex;
             flex-direction: column;
@@ -13,7 +19,7 @@
             height: 100vh;
             margin: 0;
             background-color: #000;
-            color: white;
+            color: #0ff;
         }
         table {
             padding: 10px;
@@ -30,23 +36,29 @@
             width: 20px;
         }
         canvas {
-            border: 1px solid cyan;
+            border: 1px solid #0ff;
             width: 98%;
             height: 98%;
         }
         #control {
             position: absolute;
             background-color: #000;
-            border: 1px solid cyan;
+            border: 1px solid #088;
             border-spacing: 2px;
-            bottom:20px;
-            left: 20px;
+            bottom:35px;
+            left: 35px;
             padding: 10px;
 
         }
-        /* select, button {
-            margin-bottom: 10px;
-        } */
+        #infor {
+            position: absolute;
+            background-color: #000;
+            border: 1px solid #088;
+            border-spacing: 2px;
+            bottom: 35px;
+            right: 35px;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
@@ -95,6 +107,10 @@
         </div>
 
         
+    </div>
+    
+    <div id="infor">
+        <a href="https://github.com/pabrams/conwaysgameoflife">Source (github)</a>
     </div>
 
     <canvas id="gameCanvas"></canvas>
