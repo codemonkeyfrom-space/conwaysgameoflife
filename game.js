@@ -1,6 +1,6 @@
 import { rawPatterns } from './patterns.js?v=2';
 
-let cellSize=2;
+let cellSize=40;
 let rows;
 let cols;
 let grid;
@@ -54,8 +54,8 @@ bnGo.addEventListener("click", () => {
 });
 
 canvas.addEventListener("wheel", (e) => {
-    cellSize += e.deltaY/100;
-    drawGrid();
+    // cellSize += e.deltaY/100;
+    // drawGrid();
 });
 
 function setSpeed() {
@@ -77,6 +77,23 @@ function createGrid() {
     zeroGrid();
     let desiredPattern = patterns[ddPattern.value];
     desiredPattern && applyPatternToGrid(desiredPattern);
+}
+
+function smoothCanvas() {
+    // Get the DPR and size of the canvas
+    const dpr = window.devicePixelRatio;
+    const rect = canvas.getBoundingClientRect();
+
+    // Set the "actual" size of the canvas
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+
+    // Scale the context to ensure correct drawing operations
+    ctx.scale(dpr, dpr);
+
+    // Set the "drawn" size of the canvas
+    canvas.style.width = `${rect.width}px`;
+    canvas.style.height = `${rect.height}px`;
 }
 
 function applyPatternToGrid(patternArray) {
@@ -108,6 +125,9 @@ function drawGrid() {
                 ctx.fillStyle = "white";
                 ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
             }
+            
+            ctx.strokeStyle = "red";
+            ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         }
     }
 }
@@ -197,3 +217,4 @@ Object.keys(rawPatterns).forEach(patternName => {
 });
 
 init();
+smoothCanvas();
