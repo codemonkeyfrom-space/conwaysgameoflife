@@ -97,6 +97,7 @@ function smoothCanvas() {
 }
 
 function applyPatternToGrid(patternArray) {
+    console.log("applying pattern", patternArray);
     const rows = grid.length;
     const cols = grid[0].length;
     const patternRows = patternArray.length;
@@ -118,6 +119,7 @@ function applyPatternToGrid(patternArray) {
 }
 
 function drawGrid() {
+    console.log("drawing grid");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
@@ -128,6 +130,10 @@ function drawGrid() {
             
             ctx.strokeStyle = "red";
             ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+            console.log("cellSize", cellSize);
+            console.log("row", row);
+            console.log("col", col);
+            console.log("drawing red");
         }
     }
 }
@@ -216,5 +222,5 @@ Object.keys(rawPatterns).forEach(patternName => {
     ddPattern.appendChild(option);
 });
 
-init();
 smoothCanvas();
+init();
