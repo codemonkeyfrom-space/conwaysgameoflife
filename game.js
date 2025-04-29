@@ -1,6 +1,6 @@
 import { rawPatterns } from './patterns.js?v=2';
 
-let cellSize=40;
+let cellSize=6;
 let rows;
 let cols;
 let grid;
@@ -128,12 +128,12 @@ function drawGrid() {
                 ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
             }
             
-            ctx.strokeStyle = "red";
-            ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-            console.log("cellSize", cellSize);
-            console.log("row", row);
-            console.log("col", col);
-            console.log("drawing red");
+            // ctx.strokeStyle = "red";
+            // ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+            // console.log("cellSize", cellSize);
+            // console.log("row", row);
+            // console.log("col", col);
+            // console.log("drawing red");
         }
     }
 }
